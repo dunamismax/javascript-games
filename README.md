@@ -33,44 +33,6 @@ This monorepo showcases a high-performance JavaScript 2D game development stack 
 - **Real-Time Multiplayer**: Fastify + Socket.IO for high-performance multiplayer games
 - **Database Performance**: MongoDB for player data, scores, and game state
 
-## 🎮 Games Included
-
-### Asteroids
-
-Classic space shooter with rotating ship mechanics and asteroid destruction.
-
-**Features:**
-
-- Ship rotation and thrust controls with arrow keys
-- Asteroid breaking mechanics (large → medium → small)
-- Progressive difficulty with increasing asteroid count
-- Score system and lives mechanics
-- Screen wrapping for ship and bullets
-
-### Frogger
-
-Grid-based crossing game with traffic and river obstacles.
-
-**Features:**
-
-- Grid-based movement with arrow key controls
-- Multiple traffic lanes with cars at different speeds
-- River crossing with moving logs and turtles
-- Drowning mechanics when off platforms
-- Progressive levels with increasing difficulty
-
-### Tetris
-
-Classic falling blocks puzzle with full tetromino mechanics.
-
-**Features:**
-
-- All 7 tetromino pieces (I, O, T, S, Z, J, L)
-- Piece rotation and line clearing system
-- Progressive speed increase by level
-- Next piece preview display
-- Score calculation based on lines cleared
-
 ## Tech Stack
 
 | Layer                 | Technology                                                                        | Purpose                                     |
@@ -117,65 +79,125 @@ Classic falling blocks puzzle with full tetromino mechanics.
 
 ## Games Portfolio
 
-### Asteroids Game (Port 3000)
+### Pong Game (Port 3000)
 
-Classic arcade space shooter with modern physics and controls.
+Classic two-player paddle tennis game with competitive gameplay.
 
 **Gameplay:**
 
-- Rotate ship with left/right arrow keys
-- Thrust forward with up arrow
-- Fire bullets with spacebar
-- Destroy asteroids for points
-- Avoid collision with asteroids
+- Player 1: W/S keys to move paddle
+- Player 2: UP/DOWN arrow keys to move paddle
+- Ball physics with paddle angle effects
+- First to 5 points wins
+- Spacebar to pause game
 
 **Implementation:**
 
-- Phaser 3 physics engine for realistic movement
-- Vector-based ship controls and momentum
-- Dynamic asteroid generation and destruction
-- Score tracking and lives system
-- Screen-wrapping mechanics
+- Real-time physics with ball momentum
+- Collision detection with paddle positioning
+- Score tracking and win conditions
+- Pause functionality and game state management
+- Responsive paddle controls
 
-### Frogger Game (Port 3001)
+### Snake Game (Port 3001)
+
+The timeless game where you control a growing snake to eat food.
+
+**Gameplay:**
+
+- Arrow keys or WASD to change direction
+- Eat food to grow longer and increase score
+- Avoid hitting walls or your own tail
+- Speed increases as snake grows
+- P to pause, R to restart
+
+**Implementation:**
+
+- Grid-based movement system
+- Dynamic snake growth mechanics
+- Collision detection for walls and self
+- Food spawning and consumption
+- Progressive speed increase
+
+### Space Invaders Game (Port 3002)
+
+Retro arcade shooter defending Earth from alien invaders.
+
+**Gameplay:**
+
+- Arrow keys to move ship left/right
+- Spacebar to fire bullets at aliens
+- Destroy waves of descending invaders
+- Avoid alien bullets and collision
+- Multiple enemy types and formations
+
+**Implementation:**
+
+- Wave-based enemy spawning system
+- Bullet collision and destruction
+- Enemy movement patterns and AI
+- Power-ups and weapon upgrades
+- Increasing difficulty progression
+
+### Asteroids Game (Port 3003)
+
+Classic arcade space shooter with rotating ship mechanics.
+
+**Gameplay:**
+
+- Left/right arrows to rotate ship
+- Up arrow for thrust propulsion
+- Spacebar to fire bullets
+- Destroy asteroids for points
+- Large asteroids split into smaller ones
+
+**Implementation:**
+
+- Vector-based ship physics and momentum
+- Dynamic asteroid generation and splitting
+- Screen-wrapping for ship and bullets
+- Score system based on asteroid size
+- Lives system with respawn mechanics
+
+### Frogger Game (Port 3004)
 
 Grid-based crossing game with traffic and water hazards.
 
 **Gameplay:**
 
-- Move frog with arrow keys (grid-based)
+- Arrow keys for grid-based movement
 - Cross busy roads avoiding cars
-- Navigate river on logs and turtles
-- Reach the goal area to advance levels
-- Fall in water or get hit by cars to lose lives
+- Navigate river using logs and turtles
+- Reach goal area to advance levels
+- Drown in water or get hit by cars
 
 **Implementation:**
 
-- Grid-based movement system
+- Precise grid-based collision system
 - Multiple traffic lanes with varying speeds
 - Platform detection for river crossings
-- Collision detection for hazards
-- Progressive difficulty scaling
+- Progressive difficulty with faster traffic
+- Level advancement and scoring
 
-### Tetris Game (Port 3002)
+### Tetris Game (Port 3005)
 
-Full-featured Tetris implementation with all classic mechanics.
+Full-featured falling blocks puzzle with classic mechanics.
 
 **Gameplay:**
 
-- Control falling tetrominoes with arrow keys
-- Rotate pieces with up arrow
-- Soft drop with down arrow
+- Arrow keys to move and rotate pieces
+- Down arrow for soft drop acceleration
 - Clear horizontal lines for points
-- Game speeds up as level increases
+- Seven different tetromino shapes
+- Game speeds up with each level
 
 **Implementation:**
 
-- Complete tetromino system (7 piece types)
-- Matrix-based game board and collision detection
-- Line clearing algorithm with scoring
-- Next piece preview system
-- Progressive speed increase mechanics
+- Complete tetromino system (I, O, T, S, Z, J, L)
+- Matrix-based collision and line detection
+- Line clearing algorithm with combo scoring
+- Next piece preview and hold functionality
+- Progressive speed increase by level
 
 ## Development Commands
 
