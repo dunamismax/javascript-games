@@ -1,0 +1,24 @@
+{
+  "name": "@js-games/server-core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared server core for js-games monorepo",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.1"
+  },
+  "dependencies": {
+    "fastify": "^4.26.0",
+    "socket.io": "^4.7.4",
+    "mongodb": "^6.3.0"
+  }
+}

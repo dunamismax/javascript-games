@@ -1,0 +1,23 @@
+{
+  "name": "space-invaders-game",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Classic Space Invaders game built with Phaser",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "node build.js --dev",
+    "build": "node build.js",
+    "serve": "node server.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "phaser": "^3.70.0",
+    "@js-games/game-logic": "workspace:*",
+    "@js-games/ui-components": "workspace:*"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.1",
+    "serve": "^14.2.1"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@js-games/game-logic",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared game logic utilities for js-games monorepo",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.1"
+  },
+  "dependencies": {
+    "phaser": "^3.70.0"
+  }
+}
