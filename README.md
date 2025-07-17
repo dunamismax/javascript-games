@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/images/js-games-logo.jpeg" alt="js-games Logo" width="400" />
+  <img src="/images/js-evolution.jpeg" alt="js-games Logo" width="400" />
 </p>
 
 <p align="center">
@@ -36,9 +36,11 @@ This monorepo showcases a high-performance JavaScript 2D game development stack 
 ## 🎮 Games Included
 
 ### Asteroids
+
 Classic space shooter with rotating ship mechanics and asteroid destruction.
 
 **Features:**
+
 - Ship rotation and thrust controls with arrow keys
 - Asteroid breaking mechanics (large → medium → small)
 - Progressive difficulty with increasing asteroid count
@@ -46,9 +48,11 @@ Classic space shooter with rotating ship mechanics and asteroid destruction.
 - Screen wrapping for ship and bullets
 
 ### Frogger
+
 Grid-based crossing game with traffic and river obstacles.
 
 **Features:**
+
 - Grid-based movement with arrow key controls
 - Multiple traffic lanes with cars at different speeds
 - River crossing with moving logs and turtles
@@ -56,9 +60,11 @@ Grid-based crossing game with traffic and river obstacles.
 - Progressive levels with increasing difficulty
 
 ### Tetris
+
 Classic falling blocks puzzle with full tetromino mechanics.
 
 **Features:**
+
 - All 7 tetromino pieces (I, O, T, S, Z, J, L)
 - Piece rotation and line clearing system
 - Progressive speed increase by level
@@ -116,6 +122,7 @@ Classic falling blocks puzzle with full tetromino mechanics.
 Classic arcade space shooter with modern physics and controls.
 
 **Gameplay:**
+
 - Rotate ship with left/right arrow keys
 - Thrust forward with up arrow
 - Fire bullets with spacebar
@@ -123,6 +130,7 @@ Classic arcade space shooter with modern physics and controls.
 - Avoid collision with asteroids
 
 **Implementation:**
+
 - Phaser 3 physics engine for realistic movement
 - Vector-based ship controls and momentum
 - Dynamic asteroid generation and destruction
@@ -134,6 +142,7 @@ Classic arcade space shooter with modern physics and controls.
 Grid-based crossing game with traffic and water hazards.
 
 **Gameplay:**
+
 - Move frog with arrow keys (grid-based)
 - Cross busy roads avoiding cars
 - Navigate river on logs and turtles
@@ -141,6 +150,7 @@ Grid-based crossing game with traffic and water hazards.
 - Fall in water or get hit by cars to lose lives
 
 **Implementation:**
+
 - Grid-based movement system
 - Multiple traffic lanes with varying speeds
 - Platform detection for river crossings
@@ -152,6 +162,7 @@ Grid-based crossing game with traffic and water hazards.
 Full-featured Tetris implementation with all classic mechanics.
 
 **Gameplay:**
+
 - Control falling tetrominoes with arrow keys
 - Rotate pieces with up arrow
 - Soft drop with down arrow
@@ -159,6 +170,7 @@ Full-featured Tetris implementation with all classic mechanics.
 - Game speeds up as level increases
 
 **Implementation:**
+
 - Complete tetromino system (7 piece types)
 - Matrix-based game board and collision detection
 - Line clearing algorithm with scoring
@@ -210,6 +222,7 @@ pnpm clean         # Clean all build directories
 ### Game Applications (`apps/`)
 
 **Individual Games**
+
 - Each game has its own package.json and build configuration
 - Shared scene structure: MenuScene, GameScene, GameOverScene
 - Consistent controls and UI patterns across games
@@ -218,24 +231,28 @@ pnpm clean         # Clean all build directories
 ### Shared Packages (`packages/`)
 
 **@js-games/game-logic**
+
 - Physics utilities and collision detection
 - Input handling and vector mathematics
 - Common game mechanics and algorithms
 - Performance optimization utilities
 
 **@js-games/ui-components**
+
 - Reusable UI components for menus and overlays
 - Button, menu, and score display components
 - Consistent styling and interaction patterns
 - Game overlay and HUD elements
 
 **@js-games/server-core**
+
 - Fastify server setup and configuration
 - Socket.IO integration for real-time features
 - Database connection and utilities
 - API endpoints for game data
 
 **@js-games/eslint-config-custom**
+
 - Shared ESLint configuration for JavaScript games
 - Consistent code style across all packages
 - Modern ES2020+ rule configurations
@@ -273,6 +290,7 @@ npx cap open android  # Opens Android Studio
 ### Capacitor Configuration
 
 Each game includes a `capacitor.config.js` with:
+
 - App ID and name configuration
 - Splash screen settings
 - Status bar styling
@@ -297,6 +315,7 @@ pnpm test          # Run all unit tests
 ```
 
 **Coverage Areas:**
+
 - Game logic and physics calculations
 - Collision detection algorithms
 - Score calculation systems
@@ -309,6 +328,7 @@ pnpm test:e2e      # Run E2E tests
 ```
 
 **Test Scenarios:**
+
 - Game loading and initialization
 - Core gameplay mechanics
 - UI interactions and transitions
@@ -319,12 +339,14 @@ pnpm test:e2e      # Run E2E tests
 ### Adding a New Game
 
 1. **Create Game Directory**:
+
    ```bash
    mkdir apps/new-game
    cd apps/new-game
    ```
 
 2. **Copy Template Structure**:
+
    ```bash
    cp -r ../pong/* .
    # Update package.json name and description
@@ -364,6 +386,7 @@ pnpm test:e2e      # Run E2E tests
 ### Common Issues
 
 **Build Problems:**
+
 ```bash
 pnpm clean
 pnpm install
@@ -371,6 +394,7 @@ pnpm build
 ```
 
 **Game Not Loading:**
+
 ```bash
 # Check console for errors
 # Verify Phaser CDN is accessible
@@ -378,6 +402,7 @@ pnpm build
 ```
 
 **Mobile Deployment Issues:**
+
 ```bash
 # Sync native projects
 npx cap sync
@@ -388,6 +413,7 @@ npx cap copy
 ```
 
 **Development Server Issues:**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules apps/*/node_modules packages/*/node_modules
@@ -421,7 +447,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ---
 
 <p align="center">
-  <img src="/images/js-games-showcase.jpg" alt="JavaScript Games" width="400" />
+  <img src="/images/js-yellow-crown.jpg" alt="JavaScript Games" width="400" />
 </p>
 
 <p align="center">
