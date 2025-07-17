@@ -1,7 +1,7 @@
 export class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, text, style = {}) {
     super(scene, x, y);
-    
+
     this.scene = scene;
     this.defaultStyle = {
       fontSize: '24px',
@@ -10,17 +10,17 @@ export class Button extends Phaser.GameObjects.Container {
       backgroundColor: '#4a90e2',
       padding: { x: 20, y: 10 },
       borderRadius: 5,
-      ...style
+      ...style,
     };
-    
+
     this.isPressed = false;
     this.isHovered = false;
     this.onClick = null;
     this.onHover = null;
-    
+
     this.createButton(text);
     this.setupInteractions();
-    
+
     scene.add.existing(this);
   }
 
@@ -29,17 +29,20 @@ export class Button extends Phaser.GameObjects.Container {
     const textStyle = {
       fontSize: this.defaultStyle.fontSize,
       fontFamily: this.defaultStyle.fontFamily,
-      color: this.defaultStyle.color
+      color: this.defaultStyle.color,
     };
-    
+
     this.buttonText = this.scene.add.text(0, 0, text, textStyle).setOrigin(0.5);
-    
+
     const textBounds = this.buttonText.getBounds();
     const buttonWidth = textBounds.width + padding.x * 2;
     const buttonHeight = textBounds.height + padding.y * 2;
-    
+
     this.background = this.scene.add.graphics();
-    this.background.fillStyle(Phaser.Display.Color.HexStringToColor(this.defaultStyle.backgroundColor).color);
+    this.background.fillStyle(
+      Phaser.Display.Color.HexStringToColor(this.defaultStyle.backgroundColor)
+        .color
+    );
     this.background.fillRoundedRect(
       -buttonWidth / 2,
       -buttonHeight / 2,
@@ -47,9 +50,9 @@ export class Button extends Phaser.GameObjects.Container {
       buttonHeight,
       this.defaultStyle.borderRadius
     );
-    
+
     this.add([this.background, this.buttonText]);
-    
+
     this.buttonWidth = buttonWidth;
     this.buttonHeight = buttonHeight;
   }
@@ -57,7 +60,7 @@ export class Button extends Phaser.GameObjects.Container {
   setupInteractions() {
     this.setSize(this.buttonWidth, this.buttonHeight);
     this.setInteractive({ useHandCursor: true });
-    
+
     this.on('pointerdown', this.handlePointerDown, this);
     this.on('pointerup', this.handlePointerUp, this);
     this.on('pointerover', this.handlePointerOver, this);
@@ -75,7 +78,7 @@ export class Button extends Phaser.GameObjects.Container {
       this.isPressed = false;
       this.setScale(1);
       this.setAlpha(1);
-      
+
       if (this.onClick) {
         this.onClick();
       }
@@ -85,7 +88,7 @@ export class Button extends Phaser.GameObjects.Container {
   handlePointerOver() {
     this.isHovered = true;
     this.setScale(1.05);
-    
+
     if (this.onHover) {
       this.onHover(true);
     }
@@ -96,7 +99,7 @@ export class Button extends Phaser.GameObjects.Container {
     this.isPressed = false;
     this.setScale(1);
     this.setAlpha(1);
-    
+
     if (this.onHover) {
       this.onHover(false);
     }

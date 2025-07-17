@@ -4,21 +4,21 @@ import { Server } from 'socket.io';
 export function createServer(options = {}) {
   const fastify = Fastify({
     logger: options.logger || true,
-    ...options.fastifyOptions
+    ...options.fastifyOptions,
   });
 
   const io = new Server(fastify.server, {
     cors: {
       origin: options.corsOrigin || 'http://localhost:3000',
-      methods: ['GET', 'POST']
+      methods: ['GET', 'POST'],
     },
-    ...options.socketOptions
+    ...options.socketOptions,
   });
 
   fastify.register(async function (fastify) {
     await fastify.register(import('@fastify/static'), {
       root: options.staticPath || process.cwd(),
-      prefix: '/'
+      prefix: '/',
     });
 
     fastify.get('/health', async (request, reply) => {
@@ -26,10 +26,10 @@ export function createServer(options = {}) {
     });
 
     fastify.get('/api/status', async (request, reply) => {
-      return { 
+      return {
         status: 'running',
         connectedClients: io.engine.clientsCount,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
     });
   });
@@ -48,9 +48,9 @@ export async function startServer(server, port = 3000, host = '0.0.0.0') {
 }
 
 export function setupGracefulShutdown(server) {
-  const gracefulShutdown = async (signal) => {
+  const gracefulShutdown = async signal => {
     console.log(`Received ${signal}, shutting down gracefully...`);
-    
+
     try {
       await server.close();
       console.log('Server closed successfully');

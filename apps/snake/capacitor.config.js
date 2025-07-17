@@ -5,18 +5,18 @@ const config = {
   appName: 'Snake Game',
   webDir: 'dist',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
   },
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
       backgroundColor: '#2d5016',
-      showSpinner: false
+      showSpinner: false,
     },
     StatusBar: {
-      style: 'DARK'
-    }
-  }
+      style: 'DARK',
+    },
+  },
 };
 
 export default config;

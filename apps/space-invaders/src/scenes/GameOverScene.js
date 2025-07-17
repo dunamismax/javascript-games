@@ -10,32 +10,40 @@ export class GameOverScene extends Phaser.Scene {
 
   create() {
     this.createStars();
-    
-    this.add.text(400, 150, 'GAME OVER', {
-      fontSize: '48px',
-      fontFamily: 'Arial',
-      color: '#ff0000'
-    }).setOrigin(0.5);
 
-    this.add.text(400, 220, `Final Score: ${this.finalScore}`, {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff'
-    }).setOrigin(0.5);
+    this.add
+      .text(400, 150, 'GAME OVER', {
+        fontSize: '48px',
+        fontFamily: 'Arial',
+        color: '#ff0000',
+      })
+      .setOrigin(0.5);
 
-    this.add.text(400, 260, `Level Reached: ${this.finalLevel}`, {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff'
-    }).setOrigin(0.5);
+    this.add
+      .text(400, 220, `Final Score: ${this.finalScore}`, {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
 
-    const playAgainButton = this.add.text(400, 350, 'PLAY AGAIN', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#00aa00',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    this.add
+      .text(400, 260, `Level Reached: ${this.finalLevel}`, {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
+
+    const playAgainButton = this.add
+      .text(400, 350, 'PLAY AGAIN', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#00aa00',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     playAgainButton.setInteractive({ useHandCursor: true });
     playAgainButton.on('pointerdown', () => {
@@ -50,13 +58,15 @@ export class GameOverScene extends Phaser.Scene {
       playAgainButton.setScale(1);
     });
 
-    const menuButton = this.add.text(400, 420, 'MAIN MENU', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#666666',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    const menuButton = this.add
+      .text(400, 420, 'MAIN MENU', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#666666',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     menuButton.setInteractive({ useHandCursor: true });
     menuButton.on('pointerdown', () => {
@@ -81,13 +91,13 @@ export class GameOverScene extends Phaser.Scene {
         0xffffff,
         Phaser.Math.FloatBetween(0.3, 1)
       );
-      
+
       this.tweens.add({
         targets: star,
         alpha: 0.3,
         duration: Phaser.Math.Between(1000, 3000),
         yoyo: true,
-        repeat: -1
+        repeat: -1,
       });
     }
   }

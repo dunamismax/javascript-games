@@ -5,22 +5,26 @@ export class InputManager {
     this.touch = { x: 0, y: 0, isDown: false };
     this.gamepad = null;
     this.callbacks = {};
-    
+
     this.setupEventListeners();
   }
 
   setupEventListeners() {
-    document.addEventListener('keydown', (e) => this.handleKeyDown(e));
-    document.addEventListener('keyup', (e) => this.handleKeyUp(e));
-    document.addEventListener('mousedown', (e) => this.handleMouseDown(e));
-    document.addEventListener('mouseup', (e) => this.handleMouseUp(e));
-    document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-    document.addEventListener('touchstart', (e) => this.handleTouchStart(e));
-    document.addEventListener('touchend', (e) => this.handleTouchEnd(e));
-    document.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+    document.addEventListener('keydown', e => this.handleKeyDown(e));
+    document.addEventListener('keyup', e => this.handleKeyUp(e));
+    document.addEventListener('mousedown', e => this.handleMouseDown(e));
+    document.addEventListener('mouseup', e => this.handleMouseUp(e));
+    document.addEventListener('mousemove', e => this.handleMouseMove(e));
+    document.addEventListener('touchstart', e => this.handleTouchStart(e));
+    document.addEventListener('touchend', e => this.handleTouchEnd(e));
+    document.addEventListener('touchmove', e => this.handleTouchMove(e));
 
-    window.addEventListener('gamepadconnected', (e) => this.handleGamepadConnected(e));
-    window.addEventListener('gamepaddisconnected', (e) => this.handleGamepadDisconnected(e));
+    window.addEventListener('gamepadconnected', e =>
+      this.handleGamepadConnected(e)
+    );
+    window.addEventListener('gamepaddisconnected', e =>
+      this.handleGamepadDisconnected(e)
+    );
   }
 
   handleKeyDown(event) {
@@ -111,7 +115,10 @@ export class InputManager {
 
   getGamepadButton(buttonIndex) {
     if (!this.gamepad) return false;
-    return this.gamepad.buttons[buttonIndex] && this.gamepad.buttons[buttonIndex].pressed;
+    return (
+      this.gamepad.buttons[buttonIndex] &&
+      this.gamepad.buttons[buttonIndex].pressed
+    );
   }
 
   getGamepadAxis(axisIndex) {
@@ -128,7 +135,9 @@ export class InputManager {
 
   off(event, callback) {
     if (this.callbacks[event]) {
-      this.callbacks[event] = this.callbacks[event].filter(cb => cb !== callback);
+      this.callbacks[event] = this.callbacks[event].filter(
+        cb => cb !== callback
+      );
     }
   }
 
@@ -152,6 +161,9 @@ export class InputManager {
     document.removeEventListener('touchend', this.handleTouchEnd);
     document.removeEventListener('touchmove', this.handleTouchMove);
     window.removeEventListener('gamepadconnected', this.handleGamepadConnected);
-    window.removeEventListener('gamepaddisconnected', this.handleGamepadDisconnected);
+    window.removeEventListener(
+      'gamepaddisconnected',
+      this.handleGamepadDisconnected
+    );
   }
 }

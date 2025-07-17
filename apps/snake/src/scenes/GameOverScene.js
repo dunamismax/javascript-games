@@ -8,31 +8,39 @@ export class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(320, 150, 'GAME OVER', {
-      fontSize: '48px',
-      fontFamily: 'Arial',
-      color: '#ff5252'
-    }).setOrigin(0.5);
+    this.add
+      .text(320, 150, 'GAME OVER', {
+        fontSize: '48px',
+        fontFamily: 'Arial',
+        color: '#ff5252',
+      })
+      .setOrigin(0.5);
 
-    this.add.text(320, 220, `Final Score: ${this.finalScore}`, {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff'
-    }).setOrigin(0.5);
+    this.add
+      .text(320, 220, `Final Score: ${this.finalScore}`, {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
 
-    this.add.text(320, 260, this.getScoreMessage(), {
-      fontSize: '18px',
-      fontFamily: 'Arial',
-      color: '#7cb342'
-    }).setOrigin(0.5);
+    this.add
+      .text(320, 260, this.getScoreMessage(), {
+        fontSize: '18px',
+        fontFamily: 'Arial',
+        color: '#7cb342',
+      })
+      .setOrigin(0.5);
 
-    const playAgainButton = this.add.text(320, 350, 'PLAY AGAIN', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#7cb342',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    const playAgainButton = this.add
+      .text(320, 350, 'PLAY AGAIN', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#7cb342',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     playAgainButton.setInteractive({ useHandCursor: true });
     playAgainButton.on('pointerdown', () => {
@@ -47,13 +55,15 @@ export class GameOverScene extends Phaser.Scene {
       playAgainButton.setScale(1);
     });
 
-    const menuButton = this.add.text(320, 420, 'MAIN MENU', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#666666',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    const menuButton = this.add
+      .text(320, 420, 'MAIN MENU', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#666666',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     menuButton.setInteractive({ useHandCursor: true });
     menuButton.on('pointerdown', () => {
@@ -81,20 +91,20 @@ export class GameOverScene extends Phaser.Scene {
     } else if (this.finalScore >= 50) {
       return 'Not bad! Practice makes perfect!';
     } else {
-      return 'Keep trying! You\'ll get better!';
+      return "Keep trying! You'll get better!";
     }
   }
 
   createBorderPattern() {
     const borderColor = 0x4a7c23;
-    
+
     for (let i = 0; i < 640; i += 20) {
       if (i % 40 === 0) {
         this.add.rectangle(i + 10, 10, 20, 20, borderColor);
         this.add.rectangle(i + 10, 630, 20, 20, borderColor);
       }
     }
-    
+
     for (let i = 0; i < 640; i += 20) {
       if (i % 40 === 0) {
         this.add.rectangle(10, i + 10, 20, 20, borderColor);

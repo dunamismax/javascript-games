@@ -45,30 +45,36 @@ export class PhysicsUtils {
 
   static wrapAround(value, min, max) {
     const range = max - min;
-    return ((value - min) % range + range) % range + min;
+    return ((((value - min) % range) + range) % range) + min;
   }
 
   static applyBounds(object, bounds) {
     return {
       x: this.clamp(object.x, 0, bounds.width),
-      y: this.clamp(object.y, 0, bounds.height)
+      y: this.clamp(object.y, 0, bounds.height),
     };
   }
 
   static bounceVelocity(velocity, normal, restitution = 0.8) {
     const dot = this.dotProduct(velocity, normal);
-    return this.subtractVectors(velocity, this.multiplyVector(normal, 2 * dot * restitution));
+    return this.subtractVectors(
+      velocity,
+      this.multiplyVector(normal, 2 * dot * restitution)
+    );
   }
 
   static moveTowards(current, target, maxDistance) {
     const direction = this.subtractVectors(target, current);
     const distance = this.magnitude(direction);
-    
+
     if (distance <= maxDistance) {
       return target;
     }
-    
+
     const normalizedDirection = this.normalizeVector(direction);
-    return this.addVectors(current, this.multiplyVector(normalizedDirection, maxDistance));
+    return this.addVectors(
+      current,
+      this.multiplyVector(normalizedDirection, maxDistance)
+    );
   }
 }

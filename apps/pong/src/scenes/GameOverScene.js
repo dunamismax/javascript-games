@@ -10,31 +10,44 @@ export class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(400, 150, 'Game Over', {
-      fontSize: '48px',
-      fontFamily: 'Arial',
-      color: '#ffffff'
-    }).setOrigin(0.5);
+    this.add
+      .text(400, 150, 'Game Over', {
+        fontSize: '48px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
 
-    this.add.text(400, 220, `${this.winner} Wins!`, {
-      fontSize: '32px',
-      fontFamily: 'Arial',
-      color: '#4a90e2'
-    }).setOrigin(0.5);
+    this.add
+      .text(400, 220, `${this.winner} Wins!`, {
+        fontSize: '32px',
+        fontFamily: 'Arial',
+        color: '#4a90e2',
+      })
+      .setOrigin(0.5);
 
-    this.add.text(400, 280, `Final Score: ${this.player1Score} - ${this.player2Score}`, {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff'
-    }).setOrigin(0.5);
+    this.add
+      .text(
+        400,
+        280,
+        `Final Score: ${this.player1Score} - ${this.player2Score}`,
+        {
+          fontSize: '24px',
+          fontFamily: 'Arial',
+          color: '#ffffff',
+        }
+      )
+      .setOrigin(0.5);
 
-    const playAgainButton = this.add.text(400, 350, 'Play Again', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#4a90e2',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    const playAgainButton = this.add
+      .text(400, 350, 'Play Again', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#4a90e2',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     playAgainButton.setInteractive({ useHandCursor: true });
     playAgainButton.on('pointerdown', () => {
@@ -49,13 +62,15 @@ export class GameOverScene extends Phaser.Scene {
       playAgainButton.setScale(1);
     });
 
-    const menuButton = this.add.text(400, 420, 'Main Menu', {
-      fontSize: '24px',
-      fontFamily: 'Arial',
-      color: '#ffffff',
-      backgroundColor: '#666666',
-      padding: { x: 20, y: 10 }
-    }).setOrigin(0.5);
+    const menuButton = this.add
+      .text(400, 420, 'Main Menu', {
+        fontSize: '24px',
+        fontFamily: 'Arial',
+        color: '#ffffff',
+        backgroundColor: '#666666',
+        padding: { x: 20, y: 10 },
+      })
+      .setOrigin(0.5);
 
     menuButton.setInteractive({ useHandCursor: true });
     menuButton.on('pointerdown', () => {

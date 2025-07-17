@@ -14,8 +14,8 @@ export default defineConfig({
         'dist/',
         'build/',
         '**/*.config.js',
-        '**/*.test.js'
-      ]
-    }
-  }
+        '**/*.test.js',
+      ],
+    },
+  },
 });

@@ -5,18 +5,18 @@ const config = {
   appName: 'Space Invaders',
   webDir: 'dist',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
   },
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
       backgroundColor: '#000011',
-      showSpinner: false
+      showSpinner: false,
     },
     StatusBar: {
-      style: 'DARK'
-    }
-  }
+      style: 'DARK',
+    },
+  },
 };
 
 export default config;

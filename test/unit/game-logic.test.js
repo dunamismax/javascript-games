@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { PhysicsUtils, GameUtils } from '../../packages/game-logic/src/index.js';
+import {
+  PhysicsUtils,
+  GameUtils,
+} from '../../packages/game-logic/src/index.js';
 
 describe('PhysicsUtils', () => {
   describe('createVector2', () => {
@@ -72,7 +75,7 @@ describe('GameUtils', () => {
       const rect1 = { x: 0, y: 0, width: 10, height: 10 };
       const rect2 = { x: 5, y: 5, width: 10, height: 10 };
       const rect3 = { x: 20, y: 20, width: 10, height: 10 };
-      
+
       expect(GameUtils.isRectCollision(rect1, rect2)).toBe(true);
       expect(GameUtils.isRectCollision(rect1, rect3)).toBe(false);
     });

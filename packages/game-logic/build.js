@@ -16,9 +16,9 @@ const buildOptions = {
   sourcemap: true,
   external: ['phaser'],
   define: {
-    'process.env.NODE_ENV': '"production"'
+    'process.env.NODE_ENV': '"production"',
   },
-  minify: !isWatchMode
+  minify: !isWatchMode,
 };
 
 async function buildPackage() {
@@ -30,8 +30,8 @@ async function buildPackage() {
           onRebuild(error, result) {
             if (error) console.error('Build failed:', error);
             else console.log('Build succeeded:', result);
-          }
-        }
+          },
+        },
       });
       console.log('Watching for changes...');
     } else {

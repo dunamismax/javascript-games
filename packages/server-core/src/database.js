@@ -1,7 +1,10 @@
 import { MongoClient } from 'mongodb';
 
 export class Database {
-  constructor(connectionString = 'mongodb://localhost:27017', dbName = 'js-games') {
+  constructor(
+    connectionString = 'mongodb://localhost:27017',
+    dbName = 'js-games'
+  ) {
     this.connectionString = connectionString;
     this.dbName = dbName;
     this.client = null;
@@ -40,7 +43,7 @@ export class Database {
     const result = await players.insertOne({
       ...playerData,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     });
     return result.insertedId;
   }
@@ -54,11 +57,11 @@ export class Database {
     const players = this.getCollection('players');
     const result = await players.updateOne(
       { _id: playerId },
-      { 
-        $set: { 
+      {
+        $set: {
           ...updateData,
-          updatedAt: new Date()
-        }
+          updatedAt: new Date(),
+        },
       }
     );
     return result.modifiedCount > 0;
@@ -71,14 +74,15 @@ export class Database {
       gameType,
       score,
       metadata,
-      timestamp: new Date()
+      timestamp: new Date(),
     });
     return result.insertedId;
   }
 
   async getHighScores(gameType, limit = 10) {
     const scores = this.getCollection('scores');
-    return await scores.find({ gameType })
+    return await scores
+      .find({ gameType })
       .sort({ score: -1 })
       .limit(limit)
       .toArray();
@@ -87,12 +91,13 @@ export class Database {
   async getPlayerScores(playerId, gameType = null, limit = 10) {
     const scores = this.getCollection('scores');
     const query = { playerId };
-    
+
     if (gameType) {
       query.gameType = gameType;
     }
-    
-    return await scores.find(query)
+
+    return await scores
+      .find(query)
       .sort({ timestamp: -1 })
       .limit(limit)
       .toArray();
@@ -103,7 +108,7 @@ export class Database {
     const result = await sessions.insertOne({
       ...sessionData,
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     });
     return result.insertedId;
   }
@@ -112,11 +117,11 @@ export class Database {
     const sessions = this.getCollection('game_sessions');
     const result = await sessions.updateOne(
       { _id: sessionId },
-      { 
-        $set: { 
+      {
+        $set: {
           ...updateData,
-          updatedAt: new Date()
-        }
+          updatedAt: new Date(),
+        },
       }
     );
     return result.modifiedCount > 0;
@@ -136,11 +141,11 @@ export class Database {
   async cleanup() {
     const sessions = this.getCollection('game_sessions');
     const cutoffTime = new Date(Date.now() - 24 * 60 * 60 * 1000);
-    
+
     const result = await sessions.deleteMany({
-      updatedAt: { $lt: cutoffTime }
+      updatedAt: { $lt: cutoffTime },
     });
-    
+
     console.log(`Cleaned up ${result.deletedCount} old game sessions`);
     return result.deletedCount;
   }

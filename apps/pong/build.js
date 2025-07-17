@@ -12,8 +12,8 @@ const buildOptions = {
   sourcemap: isDev,
   minify: !isDev,
   define: {
-    'process.env.NODE_ENV': isDev ? '"development"' : '"production"'
-  }
+    'process.env.NODE_ENV': isDev ? '"development"' : '"production"',
+  },
 };
 
 async function buildGame() {
@@ -25,8 +25,8 @@ async function buildGame() {
           onRebuild(error, result) {
             if (error) console.error('Build failed:', error);
             else console.log('Build succeeded');
-          }
-        }
+          },
+        },
       });
       console.log('Watching for changes...');
     } else {

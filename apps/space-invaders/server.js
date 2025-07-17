@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const server = createServer((req, res) => {
   let filePath = req.url === '/' ? '/index.html' : req.url;
@@ -14,13 +14,13 @@ const server = createServer((req, res) => {
 
   try {
     const content = readFileSync(fullPath);
-    
+
     let contentType = 'text/html';
     if (filePath.endsWith('.js')) contentType = 'application/javascript';
     else if (filePath.endsWith('.css')) contentType = 'text/css';
     else if (filePath.endsWith('.png')) contentType = 'image/png';
     else if (filePath.endsWith('.jpg')) contentType = 'image/jpeg';
-    
+
     res.writeHead(200, { 'Content-Type': contentType });
     res.end(content);
   } catch (error) {
