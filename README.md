@@ -20,427 +20,93 @@
 
 ---
 
-## About This Stack
+## JavaScript 2D Game Development Stack
 
-This monorepo showcases a high-performance JavaScript 2D game development stack - engineered for creating fast, responsive games for both web and mobile platforms. It leverages lightweight, powerful tools to deliver cross-platform gaming experiences with minimal overhead and maximum performance.
+High-performance Phaser 3 games for web and mobile platforms using modern JavaScript tooling.
 
-### Core Philosophy
+### Tech Stack
 
-- **JavaScript 2D Game Development**: Phaser 3 for powerful, cross-platform 2D games
-- **Lightning-Fast Builds**: esbuild for near-instantaneous compilation and bundling
-- **Cross-Platform Ready**: Web-first with Capacitor for iOS/Android deployment
-- **Monorepo Architecture**: Shared packages for game logic, UI components, and utilities
-- **Real-Time Multiplayer**: Fastify + Socket.IO for high-performance multiplayer games
-- **Database Performance**: MongoDB for player data, scores, and game state
-
-## Tech Stack
-
-| Layer                 | Technology                                                                        | Purpose                                     |
-| --------------------- | --------------------------------------------------------------------------------- | ------------------------------------------- |
-| **Game Engine**       | [Phaser 3](https://phaser.io/)                                                   | Fast, free HTML5 game framework            |
-| **Build System**      | [esbuild](https://esbuild.github.io/)                                             | Lightning-fast builds and bundling          |
-| **Backend Framework** | [Fastify](https://www.fastify.io/)                                                | High-performance Node.js web framework      |
-| **Real-Time**         | [Socket.IO](https://socket.io/)                                                   | Bidirectional communication for multiplayer |
-| **Database**          | [MongoDB](https://www.mongodb.com/)                                               | Document database for game data             |
-| **Mobile Deployment** | [Capacitor](https://capacitorjs.com/)                                             | Cross-platform mobile app deployment        |
-| **Testing**           | [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/)            | Unit testing and end-to-end testing         |
-| **Package Manager**   | [pnpm](https://pnpm.io/)                                                          | Fast, disk space efficient package manager  |
+- **Game Engine**: Phaser 3 for 2D HTML5 games
+- **Build**: esbuild for lightning-fast compilation
+- **Backend**: Fastify + Socket.IO for multiplayer
+- **Mobile**: Capacitor for iOS/Android deployment
+- **Package Manager**: pnpm for efficient dependency management
 
 ## Quick Start
 
-### Prerequisites
+```bash
+git clone https://github.com/dunamismax/js-games.git
+cd js-games
+pnpm install && pnpm build && pnpm dev
+```
 
-- Node.js 18 or higher
-- pnpm 8 or higher
-- MongoDB (optional, for multiplayer features)
+## Games
 
-### Installation
+### 1. Pong (Port 3000)
 
-1. Clone and initialize:
+Classic two-player paddle tennis - W/S vs UP/DOWN arrows, first to 5 wins
 
-   ```bash
-   git clone https://github.com/dunamismax/js-games.git
-   cd js-games
-   pnpm install
-   ```
+### 2. Snake (Port 3001)
 
-2. Build all packages:
+Growing snake game - Arrow keys/WASD, eat food, avoid walls and tail
 
-   ```bash
-   pnpm build
-   ```
+### 3. Space Invaders (Port 3002)
 
-3. Start development:
+Retro arcade shooter - Arrow keys to move, spacebar to shoot
 
-   ```bash
-   pnpm dev
-   # All games available with hot reload
-   ```
+### 4. Asteroids (Port 3003)
 
-## Games Portfolio
+Rotating ship physics - Arrow keys for rotation/thrust, spacebar to fire
 
-### Pong Game (Port 3000)
+### 5. Frogger (Port 3004)
 
-Classic two-player paddle tennis game with competitive gameplay.
+Grid-based crossing - Navigate traffic and river hazards
 
-**Gameplay:**
+### 6. Tetris (Port 3005)
 
-- Player 1: W/S keys to move paddle
-- Player 2: UP/DOWN arrow keys to move paddle
-- Ball physics with paddle angle effects
-- First to 5 points wins
-- Spacebar to pause game
-
-**Implementation:**
-
-- Real-time physics with ball momentum
-- Collision detection with paddle positioning
-- Score tracking and win conditions
-- Pause functionality and game state management
-- Responsive paddle controls
-
-### Snake Game (Port 3001)
-
-The timeless game where you control a growing snake to eat food.
-
-**Gameplay:**
-
-- Arrow keys or WASD to change direction
-- Eat food to grow longer and increase score
-- Avoid hitting walls or your own tail
-- Speed increases as snake grows
-- P to pause, R to restart
-
-**Implementation:**
-
-- Grid-based movement system
-- Dynamic snake growth mechanics
-- Collision detection for walls and self
-- Food spawning and consumption
-- Progressive speed increase
-
-### Space Invaders Game (Port 3002)
-
-Retro arcade shooter defending Earth from alien invaders.
-
-**Gameplay:**
-
-- Arrow keys to move ship left/right
-- Spacebar to fire bullets at aliens
-- Destroy waves of descending invaders
-- Avoid alien bullets and collision
-- Multiple enemy types and formations
-
-**Implementation:**
-
-- Wave-based enemy spawning system
-- Bullet collision and destruction
-- Enemy movement patterns and AI
-- Power-ups and weapon upgrades
-- Increasing difficulty progression
-
-### Asteroids Game (Port 3003)
-
-Classic arcade space shooter with rotating ship mechanics.
-
-**Gameplay:**
-
-- Left/right arrows to rotate ship
-- Up arrow for thrust propulsion
-- Spacebar to fire bullets
-- Destroy asteroids for points
-- Large asteroids split into smaller ones
-
-**Implementation:**
-
-- Vector-based ship physics and momentum
-- Dynamic asteroid generation and splitting
-- Screen-wrapping for ship and bullets
-- Score system based on asteroid size
-- Lives system with respawn mechanics
-
-### Frogger Game (Port 3004)
-
-Grid-based crossing game with traffic and water hazards.
-
-**Gameplay:**
-
-- Arrow keys for grid-based movement
-- Cross busy roads avoiding cars
-- Navigate river using logs and turtles
-- Reach goal area to advance levels
-- Drown in water or get hit by cars
-
-**Implementation:**
-
-- Precise grid-based collision system
-- Multiple traffic lanes with varying speeds
-- Platform detection for river crossings
-- Progressive difficulty with faster traffic
-- Level advancement and scoring
-
-### Tetris Game (Port 3005)
-
-Full-featured falling blocks puzzle with classic mechanics.
-
-**Gameplay:**
-
-- Arrow keys to move and rotate pieces
-- Down arrow for soft drop acceleration
-- Clear horizontal lines for points
-- Seven different tetromino shapes
-- Game speeds up with each level
-
-**Implementation:**
-
-- Complete tetromino system (I, O, T, S, Z, J, L)
-- Matrix-based collision and line detection
-- Line clearing algorithm with combo scoring
-- Next piece preview and hold functionality
-- Progressive speed increase by level
+Falling blocks puzzle - Arrow keys to move/rotate, clear lines
 
 ## Development Commands
 
-### Essential Commands
-
 ```bash
-pnpm install        # Install all dependencies
-pnpm dev           # Start all games in development mode
+pnpm dev           # Start all games with hot reload
 pnpm build         # Build all games for production
 pnpm test          # Run unit tests
 pnpm test:e2e      # Run end-to-end tests
-pnpm lint          # Run ESLint across all packages
-pnpm clean         # Clean build artifacts
+pnpm lint          # ESLint all packages
 ```
 
 ### Individual Games
 
 ```bash
-cd apps/asteroids && pnpm dev    # Run Asteroids only
-cd apps/frogger && pnpm dev      # Run Frogger only
-cd apps/tetris && pnpm dev       # Run Tetris only
-cd apps/pong && pnpm dev         # Run Pong only
-cd apps/snake && pnpm dev        # Run Snake only
-cd apps/space-invaders && pnpm dev # Run Space Invaders only
+cd apps/pong && pnpm dev              # Port 3000
+cd apps/snake && pnpm dev             # Port 3001
+cd apps/space-invaders && pnpm dev    # Port 3002
+cd apps/asteroids && pnpm dev         # Port 3003
+cd apps/frogger && pnpm dev           # Port 3004
+cd apps/tetris && pnpm dev            # Port 3005
 ```
-
-### Build Commands
-
-```bash
-pnpm build         # Build all games
-pnpm serve         # Serve production builds
-```
-
-### Development Tools
-
-```bash
-pnpm lint          # Lint all packages
-pnpm format        # Format code with Prettier
-pnpm clean         # Clean all build directories
-```
-
-## Package Architecture
-
-### Game Applications (`apps/`)
-
-**Individual Games**
-
-- Each game has its own package.json and build configuration
-- Shared scene structure: MenuScene, GameScene, GameOverScene
-- Consistent controls and UI patterns across games
-- Independent development and deployment
-
-### Shared Packages (`packages/`)
-
-**@js-games/game-logic**
-
-- Physics utilities and collision detection
-- Input handling and vector mathematics
-- Common game mechanics and algorithms
-- Performance optimization utilities
-
-**@js-games/ui-components**
-
-- Reusable UI components for menus and overlays
-- Button, menu, and score display components
-- Consistent styling and interaction patterns
-- Game overlay and HUD elements
-
-**@js-games/server-core**
-
-- Fastify server setup and configuration
-- Socket.IO integration for real-time features
-- Database connection and utilities
-- API endpoints for game data
-
-**@js-games/eslint-config-custom**
-
-- Shared ESLint configuration for JavaScript games
-- Consistent code style across all packages
-- Modern ES2020+ rule configurations
 
 ## Mobile Deployment
 
-Each game can be deployed to iOS and Android using Capacitor:
-
-### Setup Mobile Development
-
 ```bash
-# Navigate to any game directory
 cd apps/asteroids
-
-# Add mobile platforms
-npx cap add ios
-npx cap add android
-
-# Build and sync
-pnpm build
-npx cap sync
-```
-
-### Build for Mobile
-
-```bash
-# Copy web assets to native projects
-npx cap copy
-
-# Open in native IDE
+npx cap add ios android
+pnpm build && npx cap sync
 npx cap open ios      # Opens Xcode
 npx cap open android  # Opens Android Studio
 ```
 
-### Capacitor Configuration
+## Architecture
 
-Each game includes a `capacitor.config.js` with:
-
-- App ID and name configuration
-- Splash screen settings
-- Status bar styling
-- Native plugin configurations
-
-## Performance Benefits
-
-- **Lightning-Fast Builds**: esbuild compiles games in milliseconds
-- **Minimal Bundle Size**: Phaser 3 + game code optimized for web and mobile
-- **Shared Code**: Common game logic reduces duplication
-- **Hot Reload**: Instant feedback during development
-- **Intelligent Caching**: Workspace-aware build optimization
-- **Mobile Optimization**: Capacitor provides native performance
-- **Physics Performance**: Arcade physics for smooth 60fps gameplay
-
-## Testing Strategy
-
-### Unit Testing with Vitest
-
-```bash
-pnpm test          # Run all unit tests
-```
-
-**Coverage Areas:**
-
-- Game logic and physics calculations
-- Collision detection algorithms
-- Score calculation systems
-- Input handling utilities
-
-### End-to-End Testing with Playwright
-
-```bash
-pnpm test:e2e      # Run E2E tests
-```
-
-**Test Scenarios:**
-
-- Game loading and initialization
-- Core gameplay mechanics
-- UI interactions and transitions
-- Cross-browser compatibility
-
-## Game Development Workflow
-
-### Adding a New Game
-
-1. **Create Game Directory**:
-
-   ```bash
-   mkdir apps/new-game
-   cd apps/new-game
-   ```
-
-2. **Copy Template Structure**:
-
-   ```bash
-   cp -r ../pong/* .
-   # Update package.json name and description
-   ```
-
-3. **Implement Game Scenes**:
-   - `src/scenes/MenuScene.js` - Game menu and controls
-   - `src/scenes/GameScene.js` - Core game logic
-   - `src/scenes/GameOverScene.js` - End game state
-
-4. **Configure Build**:
-   - Update `build.js` for game-specific settings
-   - Modify `index.html` title and styling
-   - Set `capacitor.config.js` app details
-
-### Game Development Best Practices
-
-- **Scene Management**: Use Phaser's scene system for game states
-- **Physics**: Leverage Arcade physics for simple, fast collision detection
-- **Input Handling**: Consistent key mapping across games
-- **Asset Loading**: Preload assets in scene preload() methods
-- **Performance**: Use object pooling for bullets and particles
-- **Mobile**: Touch-friendly controls and responsive design
+- **Monorepo**: Shared packages for game logic, UI components, server core
+- **Scene Structure**: MenuScene → GameScene → GameOverScene
+- **Physics**: Arcade physics for 60fps performance
+- **Testing**: Vitest for units, Playwright for E2E
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-game`
-3. Implement your game following the established patterns
-4. Add tests for game logic
-5. Run linting: `pnpm lint`
-6. Format code: `pnpm format`
-7. Submit a pull request
-
-## Troubleshooting
-
-### Common Issues
-
-**Build Problems:**
-
-```bash
-pnpm clean
-pnpm install
-pnpm build
-```
-
-**Game Not Loading:**
-
-```bash
-# Check console for errors
-# Verify Phaser CDN is accessible
-# Ensure game.js bundle is generated
-```
-
-**Mobile Deployment Issues:**
-
-```bash
-# Sync native projects
-npx cap sync
-
-# Clean and rebuild
-pnpm build
-npx cap copy
-```
-
-**Development Server Issues:**
-
-```bash
-# Clear node_modules and reinstall
-rm -rf node_modules apps/*/node_modules packages/*/node_modules
-pnpm install
-```
+Fork → Feature branch → Tests → Lint → Pull request
 
 ## Support This Project
 
