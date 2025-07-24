@@ -263,12 +263,6 @@ pnpm start    # Start production servers
 
 **Code Style:** Uses ESLint and Prettier with shared configurations for consistent code quality
 
-## Author
-
-<img src="https://gravatar.com/nachounabashed3164d5c433" alt="dunamismax" width="80" style="border-radius: 50%;" />
-
-**dunamismax** - Creator and maintainer of this JavaScript 2D Game Development Stack.
-
 ## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
